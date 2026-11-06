@@ -1,0 +1,58 @@
+body {
+    margin: 0; padding: 0; background-color: #050508;
+    font-family: 'Segoe UI', Arial, sans-serif; color: #fff;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    min-height: 100vh; overflow: hidden;
+}
+#menuBgCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+main { position: relative; z-index: 1; flex: 1; display: flex; justify-content: center; align-items: center; }
+#auth-screen, #launcher-screen {
+    width: 560px; background: rgba(14, 14, 23, 0.95); border: 2px solid #ff4655;
+    border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 0 35px rgba(255, 70, 85, 0.35); backdrop-filter: blur(10px);
+}
+.auth-box { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 12px; }
+#username-input { padding: 12px; font-size: 1.1rem; border: 2px solid #333; border-radius: 6px; background: #0b0b11; color: white; text-align: center; transition: 0.2s; }
+#username-input:focus { border-color: #ff4655; }
+#login-btn { background: #ff4655; color: white; border: none; padding: 12px; font-size: 1.1rem; font-weight: bold; border-radius: 6px; cursor: pointer; }
+.skin-shop-box { background: rgba(8, 8, 14, 0.9); padding: 0.8rem; border-radius: 8px; margin: 0.8rem 0; border: 1px solid #222235; }
+.skin-shop-box h3 { margin: 0 0 8px 0; font-size: 0.85rem; color: #00f0ff; letter-spacing: 1px; }
+.skins-list, .difficulty-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.skin-btn, .gun-skin-btn { background: #161626; color: #aaa; border: 1px solid #333; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; font-weight: bold; transition: 0.2s; }
+.skin-btn.active, .gun-skin-btn.active { background: #ff4655; color: #fff; border-color: #ff4655; box-shadow: 0 0 10px rgba(255, 70, 85, 0.5); }
+.game-title { font-size: 2.8rem; margin: 0.2rem 0; color: #ff4655; font-weight: 800; letter-spacing: 1px; }
+.game-about-me { font-size: 0.95rem; color: #666; margin-bottom: 0.5rem; }
+.launcher-buttons { display: flex; justify-content: center; gap: 12px; margin-top: 1rem; }
+#launch-btn, #donate-open-btn { padding: 12px 24px; font-size: 1.1rem; font-weight: bold; border-radius: 5px; border: none; cursor: pointer; }
+#launch-btn { background: #ff4655; color: white; }
+#donate-open-btn { background: #222235; color: #00f0ff; border: 1px solid #00f0ff; }
+#donate-modal { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #0c0c12; border: 2px solid #00f0ff; border-radius: 12px; padding: 2rem; width: 360px; text-align: center; box-shadow: 0 0 40px #000; z-index: 100; }
+.card-info-box { background: #000; padding: 1rem; border-radius: 6px; margin: 1rem 0; border: 1px dashed #00f0ff; }
+.card-number { font-size: 1.3rem; font-weight: bold; color: #ffeb3b; }
+#donate-close-btn { background: #222; color: white; border: none; padding: 8px 20px; border-radius: 4px; cursor: pointer; }
+
+/* ИГРОВОЙ ИНТЕРФЕЙС HUD */
+#game-screen { position: relative; }
+#gameCanvas { background: #050508; border: 3px solid #1a1a26; border-radius: 6px; display: block; box-shadow: 0 15px 40px rgba(0,0,0,0.8); }
+.ui-panel { position: absolute; top: 20px; left: 20px; right: 20px; display: flex; justify-content: space-between; pointer-events: none; font-size: 1.05rem; font-family: monospace; z-index: 10; }
+.stat-group { background: rgba(6, 6, 10, 0.85); padding: 0.6rem 1.2rem; border-radius: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+.cyan-glow { border-left: 3px solid #00f0ff; color: #00f0ff; }
+.gold-glow { border-right: 3px solid #ffeb3b; color: #ffeb3b; text-align: right; }
+.hud-num { color: #fff; font-weight: bold; }
+#shop-toggle-btn { position: absolute; bottom: 20px; right: 20px; background: #ffeb3b; border: none; padding: 8px 16px; font-weight: bold; border-radius: 4px; cursor: pointer; box-shadow: 0 4px 10px rgba(255,235,59,0.3); }
+
+#shop-ui {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    background: rgba(10, 10, 16, 0.98); border: 2px solid #ffeb3b; padding: 1.5rem; border-radius: 8px; text-align: center; width: 260px; z-index: 20; box-shadow: 0 0 30px #000;
+}
+#shop-ui button { display: block; width: 100%; padding: 10px; margin: 8px 0; background: #1a1a26; color: #fff; border: 1px solid #ffeb3b; border-radius: 4px; cursor: pointer; font-weight: bold; }
+#shop-ui #close-shop-btn { background: #ff4655; border: none; }
+.hidden { display: none !important; }
+footer { text-align: center; padding: 1rem; color: #333; font-size: 0.8rem; }
+
+#revive-bar-container {
+    position: absolute; bottom: 85px; left: 50%; transform: translateX(-50%);
+    background: rgba(0,0,0,0.9); border: 1px solid #ffeb3b; padding: 10px 20px; border-radius: 4px; text-align: center; width: 180px;
+}
+#revive-text { font-size: 0.75rem; font-weight: bold; color: #ffeb3b; margin-bottom: 4px; }
+#revive-progress-bg { width: 100%; background: #222; height: 6px; border-radius: 2px; overflow: hidden; }
+#revive-progress-fill { width: 0%; height: 100%; background: #ffeb3b; }
