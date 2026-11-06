@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xfab.play 6.0 — Infinite Assault</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <canvas id="menuBgCanvas"></canvas>
+
+    <main>
+        <!-- ЭКРАН ВХОДА -->
+        <div id="auth-screen">
+            <div class="game-logo">🎖️</div>
+            <h1 class="game-title">xfab.play</h1>
+            <p class="game-about-me">Синхронизация профиля тактического командира</p>
+            <div class="auth-box">
+                <input type="text" id="username-input" placeholder="Боевой позывной" maxlength="15" value="Командир">
+                <button id="login-btn">ПОДКЛЮЧИТЬ ПРОФИЛЬ</button>
+            </div>
+        </div>
+
+        <!-- ГЛАВНОЕ МЕНЮ -->
+        <div id="launcher-screen" class="hidden">
+            <div class="game-logo">⚡</div>
+            <h1 class="game-title">xfab.play 6.0</h1>
+            <p class="game-about-me">Командир: <span id="user-welcome">Игрок</span> | Рекорд: <span id="best-score-display">0</span> | 💚 Изумруды: <span id="emeralds-menu-display">0</span></p>
+            
+            <div class="skin-shop-box">
+                <h3>СКАФАНДРЫ (Магазин персонажей):</h3>
+                <div class="skins-list">
+                    <button class="skin-btn active" data-skin="default">Штурмовик (Белый) [0 💚]</button>
+                    <button class="skin-btn" data-skin="ghost">Призрак (Пурпур) [5 💚]</button>
+                    <button class="skin-btn" data-skin="gold">Мастер (Золото) [12 💚]</button>
+                </div>
+            </div>
+
+            <div class="skin-shop-box">
+                <h3>КАМУФЛЯЖ ОРУЖИЯ:</h3>
+                <div class="skins-list">
+                    <button class="gun-skin-btn active" data-gunskin="black">Заводской (Черный)</button>
+                    <button class="gun-skin-btn" data-gunskin="neon">Неон (Розовый) [3 💚]</button>
+                    <button class="gun-skin-btn" data-gunskin="lava">Лава (Магма) [8 💚]</button>
+                </div>
+            </div>
+
+            <div class="launcher-buttons">
+                <button id="launch-btn">НАЧАТЬ ОПЕРАЦИЮ 🚀</button>
+                <button id="donate-open-btn">ДОНАТ 💎</button>
+            </div>
+        </div>
+
+        <!-- ОКНО ДОНАТА -->
+        <div id="donate-modal" class="hidden">
+            <div class="modal-content">
+                <h3>Поддержка проекта 🚀</h3>
+                <div class="card-info-box">
+                    <p class="card-label">Перевод через Т-Банк на карту:</p>
+                    <p class="card-number">2200 7012 5461 4552</p>
+                </div>
+                <button id="donate-close-btn">Закрыть</button>
+            </div>
+        </div>
+
+        <!-- ИГРОВОЙ ЭКРАН -->
+        <div id="game-screen" class="hidden">
+            <div class="ui-panel">
+                <div class="stat-group cyan-glow">
+                    <div>HP: <span id="health-val" class="hud-num">100</span></div>
+                    <div>AMMO: <span id="ammo-val" class="hud-num">30</span></div>
+                    <div>GRENADES: <span id="grenades-val" class="hud-num">3</span></div>
+                </div>
+                <div class="stat-group gold-glow right-align">
+                    <div>SCORE: <span id="score-val" class="hud-num">0</span></div>
+                    <div>EMERALDS: 💚<span id="round-emeralds-val" class="hud-num">0</span></div>
+                    <div>CASH: $<span id="round-cash-val" class="hud-num">0</span></div>
+                </div>
+            </div>
+
+            <!-- Прогресс реанимации -->
+            <div id="revive-bar-container" class="hidden">
+                <div id="revive-text">РЕАНИМАЦИЯ НАПАРНИКА...</div>
+                <div id="revive-progress-bg"><div id="revive-progress-fill"></div></div>
+            </div>
+            
+            <div id="shop-ui" class="hidden">
+                <h3>ТАКТИЧЕСКИЙ МАГАЗИН</h3>
+                <button id="buy-ally-btn">Нанять напарника ($150)</button>
+                <button id="buy-damage-btn">Купить Броню +50 ($100)</button>
+                <button id="buy-grenade-btn">+1 Граната ($50)</button>
+                <button id="close-shop-btn">Назад в бой</button>
+            </div>
+
+            <canvas id="gameCanvas" width="900" height="450"></canvas>
+            <button id="shop-toggle-btn">МАГАЗИН (P)</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>Разработчик: <strong>Илья</strong> &copy; 2026 xfab.play. Все права защищены.</p>
+    </footer>
+
+    <script src="game.js"></script>
+</body>
+</html>
+
+
